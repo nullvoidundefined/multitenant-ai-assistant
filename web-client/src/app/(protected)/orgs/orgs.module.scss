@@ -17,6 +17,23 @@
   letter-spacing: -0.02em;
 }
 
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.docLink {
+  font-size: 13px;
+  color: var(--foreground-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
 .logoutButton {
   padding: 8px 16px;
   border: 1px solid var(--border);

@@ -146,6 +146,24 @@
   white-space: nowrap;
 }
 
+.chatHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.docLink {
+  font-size: 13px;
+  color: var(--foreground-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
 .settingsLink {
   font-size: 13px;
   color: var(--foreground-muted);
