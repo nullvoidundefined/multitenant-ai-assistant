@@ -29,3 +29,9 @@ export async function getOrg(req: Request, res: Response): Promise<void> {
     }
     res.json({ data: org });
 }
+
+export async function listMembers(req: Request, res: Response): Promise<void> {
+    const orgId = req.orgMembership!.orgId;
+    const members = await orgsRepo.listMembers(orgId);
+    res.json({ data: members });
+}

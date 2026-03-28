@@ -82,6 +82,20 @@ export async function getMembership(
     return result.rows[0] ?? null;
 }
 
+export async function listMembers(
+    orgId: string,
+): Promise<Array<{ user_id: string; email: string; role: string; joined_at: string }>> {
+    const result = await query<{ user_id: string; email: string; role: string; joined_at: string }>(
+        `SELECT om.user_id, u.email, om.role, om.joined_at
+         FROM org_members om
+         JOIN users u ON u.id = om.user_id
+         WHERE om.org_id = $1
+         ORDER BY om.joined_at ASC`,
+        [orgId],
+    );
+    return result.rows;
+}
+
 export async function getAssistantConfig(
     orgId: string,
 ): Promise<{ system_prompt: string; model: string; max_tokens: number; temperature: number } | null> {

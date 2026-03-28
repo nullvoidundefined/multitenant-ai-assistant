@@ -16,6 +16,7 @@ orgsRouter.get("/", orgHandlers.listOrgs);
 
 // Org-scoped routes — require membership
 orgsRouter.get("/:orgId", orgMembership, orgHandlers.getOrg);
+orgsRouter.get("/:orgId/members", orgMembership, orgHandlers.listMembers);
 
 // Chat
 orgsRouter.post("/:orgId/chat", orgMembership, chatHandlers.chat);
