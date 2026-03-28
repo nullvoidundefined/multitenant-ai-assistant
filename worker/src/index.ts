@@ -1,6 +1,8 @@
 import "dotenv/config";
-import { loadSecrets } from "./config/secrets.js";
+import { loadSecrets } from "app/config/secrets.js";
 
+// Must run before any app modules are imported — static imports are hoisted,
+// so all app code lives in workers.ts and is loaded via dynamic import below.
 await loadSecrets();
 
-await import("./workers.js");
+await import("app/workers.js");

@@ -1,7 +1,9 @@
 import "dotenv/config";
-import { loadSecrets } from "./config/secrets.js";
+import { loadSecrets } from "app/config/secrets.js";
 
+// Must run before any app modules are imported — static imports are hoisted,
+// so all app code lives in app.ts and is loaded via dynamic import below.
 await loadSecrets();
 
-const { startServer } = await import("./app.js");
+const { startServer } = await import("app/app.js");
 startServer();
