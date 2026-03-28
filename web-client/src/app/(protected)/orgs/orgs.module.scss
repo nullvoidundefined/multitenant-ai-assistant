@@ -1,148 +1,150 @@
 .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 48px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
 }
 
 .title {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .logoutButton {
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--background);
-    color: var(--foreground-muted);
-    font-size: 13px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.15s;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground-muted);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
 
-    &:hover {
-        background: var(--surface-hover);
-    }
+  &:hover {
+    background: var(--surface-hover);
+  }
 }
 
 /* ---- Create form ---- */
 
 .createForm {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .input {
-    flex: 1;
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--foreground);
-    font-size: 14px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.15s;
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
 
-    &::placeholder {
-        color: var(--foreground-muted);
-        opacity: 0.6;
-    }
+  &::placeholder {
+    color: var(--foreground-muted);
+    opacity: 0.6;
+  }
 
-    &:focus {
-        border-color: var(--accent);
-    }
+  &:focus {
+    border-color: var(--accent);
+  }
 }
 
 .createButton {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.15s;
-    white-space: nowrap;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
 
-    &:hover:not(:disabled) {
-        background: var(--accent-hover);
-    }
+  &:hover:not(:disabled) {
+    background: var(--accent-hover);
+  }
 
-    &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .error {
-    color: var(--error);
-    font-size: 13px;
-    margin-bottom: 16px;
+  color: var(--error);
+  font-size: 13px;
+  margin-bottom: 16px;
 }
 
 .empty {
-    color: var(--foreground-muted);
-    font-size: 14px;
-    text-align: center;
-    padding: 32px 0;
+  color: var(--foreground-muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 32px 0;
 }
 
 /* ---- Org list ---- */
 
 .orgList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .orgCard {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--background);
-    transition: background 0.15s, border-color 0.15s;
-    cursor: pointer;
-    text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+  cursor: pointer;
+  text-decoration: none;
 
-    &:hover {
-        background: var(--surface-hover);
-        border-color: var(--accent);
-    }
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent);
+  }
 }
 
 .orgName {
-    font-size: 16px;
-    font-weight: 600;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .orgMeta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .roleBadge {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 4px 8px;
-    border-radius: 4px;
-    background: var(--surface-alt);
-    color: var(--foreground-muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--foreground-muted);
 }

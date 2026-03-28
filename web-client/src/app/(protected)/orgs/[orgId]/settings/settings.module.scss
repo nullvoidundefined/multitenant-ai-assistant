@@ -1,162 +1,162 @@
 .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 48px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px;
 }
 
 .header {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .backLink {
-    display: inline-block;
-    font-size: 13px;
-    color: var(--foreground-muted);
-    margin-bottom: 16px;
-    transition: color 0.15s;
+  display: inline-block;
+  font-size: 13px;
+  color: var(--foreground-muted);
+  margin-bottom: 16px;
+  transition: color 0.15s;
 
-    &:hover {
-        color: var(--foreground);
-    }
+  &:hover {
+    color: var(--foreground);
+  }
 }
 
 .title {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* ---- Cards ---- */
 
 .card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  background: var(--background);
 }
 
 .cardTitle {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--foreground);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--foreground);
 }
 
 .loadingText {
-    font-size: 14px;
-    color: var(--foreground-muted);
+  font-size: 14px;
+  color: var(--foreground-muted);
 }
 
 /* ---- Org info ---- */
 
 .orgInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .infoRow {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .infoLabel {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--foreground-muted);
-    width: 80px;
-    flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground-muted);
+  width: 80px;
+  flex-shrink: 0;
 }
 
 .infoValue {
-    font-size: 14px;
-    color: var(--foreground);
+  font-size: 14px;
+  color: var(--foreground);
 }
 
 .slug {
-    font-family: monospace;
-    font-size: 13px;
-    background: var(--surface);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
+  font-family: monospace;
+  font-size: 13px;
+  background: var(--surface);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
 }
 
 /* ---- Members table ---- */
 
 .membersTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 
-    thead tr {
-        border-bottom: 1px solid var(--border);
-    }
+  thead tr {
+    border-bottom: 1px solid var(--border);
+  }
 
-    th {
-        text-align: left;
-        padding: 8px 12px;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--foreground-muted);
-    }
+  th {
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--foreground-muted);
+  }
 
-    td {
-        padding: 12px;
-        color: var(--foreground);
-        border-bottom: 1px solid var(--border);
-    }
+  td {
+    padding: 12px;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+  }
 
-    tbody tr:last-child td {
-        border-bottom: none;
-    }
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
 }
 
 /* ---- Role badges ---- */
 
 .roleBadge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 3px 8px;
-    border-radius: 4px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
 .roleBadgeAdmin {
-    background: var(--accent-light);
-    color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
 .roleBadgeMember {
-    background: var(--surface-alt);
-    color: var(--foreground-muted);
+  background: var(--surface-alt);
+  color: var(--foreground-muted);
 }
 
 .roleBadgeViewer {
-    background: var(--surface);
-    color: var(--foreground-muted);
-    border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground-muted);
+  border: 1px solid var(--border);
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 24px 16px;
-    }
+  .container {
+    padding: 24px 16px;
+  }
 
-    .infoRow {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
+  .infoRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
 
-    .membersTable th:last-child,
-    .membersTable td:last-child {
-        display: none;
-    }
+  .membersTable th:last-child,
+  .membersTable td:last-child {
+    display: none;
+  }
 }

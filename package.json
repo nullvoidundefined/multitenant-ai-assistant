@@ -10,7 +10,9 @@
     "dev": "pnpm --parallel run dev",
     "build": "pnpm --filter multitenant-common build && pnpm --filter multitenant-server build && pnpm --filter multitenant-worker build && pnpm --filter multitenant-web build",
     "lint": "pnpm -r run lint",
+    "lint:fix": "pnpm -r run lint:fix",
     "format": "pnpm -r run format",
+    "format:check": "pnpm -r run format:check",
     "test": "pnpm --filter multitenant-server run test"
   }
 }
