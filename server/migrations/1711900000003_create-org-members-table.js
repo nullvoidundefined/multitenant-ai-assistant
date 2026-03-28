@@ -1,13 +1,13 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * Requires users and organizations tables to exist
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createType("org_role", ["admin", "member", "viewer"]);
 
     pgm.createTable("org_members", {
@@ -28,7 +28,7 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.dropTable("org_members");
     pgm.dropType("org_role");
 };

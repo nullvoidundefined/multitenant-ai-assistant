@@ -1,13 +1,13 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * Requires organizations and users tables to exist
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createTable("conversations", {
         id: { type: "uuid", primaryKey: true, default: pgm.func("gen_random_uuid()") },
         org_id: { type: "uuid", notNull: true, references: "organizations", onDelete: "CASCADE" },
@@ -32,7 +32,7 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.sql("DROP TRIGGER IF EXISTS set_conversations_updated_at ON conversations;");
     pgm.dropTable("conversations");
 };

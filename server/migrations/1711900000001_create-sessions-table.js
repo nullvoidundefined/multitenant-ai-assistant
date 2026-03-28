@@ -1,13 +1,13 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * Requires users table to exist
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createTable("sessions", {
         id: { type: "varchar(64)", primaryKey: true },
         user_id: { type: "uuid", notNull: true, references: "users", onDelete: "CASCADE" },
@@ -22,6 +22,6 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.dropTable("sessions");
 };

@@ -1,12 +1,12 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     // Create updated_at trigger function (reused by all tables)
     pgm.sql(`
         CREATE OR REPLACE FUNCTION set_updated_at()
@@ -40,7 +40,7 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.sql("DROP TRIGGER IF EXISTS set_users_updated_at ON users;");
     pgm.dropTable("users");
     pgm.sql("DROP FUNCTION IF EXISTS set_updated_at();");

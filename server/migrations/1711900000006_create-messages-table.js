@@ -1,13 +1,13 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * Requires conversations table to exist
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createTable("messages", {
         id: { type: "uuid", primaryKey: true, default: pgm.func("gen_random_uuid()") },
         conversation_id: { type: "uuid", notNull: true, references: "conversations", onDelete: "CASCADE" },
@@ -25,6 +25,6 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.dropTable("messages");
 };

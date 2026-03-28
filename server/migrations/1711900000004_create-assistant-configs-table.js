@@ -1,13 +1,13 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * Requires organizations table to exist
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createTable("assistant_configs", {
         id: { type: "uuid", primaryKey: true, default: pgm.func("gen_random_uuid()") },
         org_id: { type: "uuid", notNull: true, references: "organizations", onDelete: "CASCADE", unique: true },
@@ -31,7 +31,7 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.sql("DROP TRIGGER IF EXISTS set_assistant_configs_updated_at ON assistant_configs;");
     pgm.dropTable("assistant_configs");
 };

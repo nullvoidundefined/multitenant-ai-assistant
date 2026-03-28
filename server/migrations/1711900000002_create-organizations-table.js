@@ -1,12 +1,12 @@
 /**
  * @type {import("node-pg-migrate").ColumnDefinitions | undefined}
  */
-exports.shorthands = undefined;
+export const shorthands = undefined;
 
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.up = (pgm) => {
+export const up = (pgm) => {
     pgm.createTable("organizations", {
         id: { type: "uuid", primaryKey: true, default: pgm.func("gen_random_uuid()") },
         name: { type: "varchar(100)", notNull: true },
@@ -27,7 +27,7 @@ exports.up = (pgm) => {
 /**
  * @param pgm {import("node-pg-migrate").MigrationBuilder}
  */
-exports.down = (pgm) => {
+export const down = (pgm) => {
     pgm.sql("DROP TRIGGER IF EXISTS set_organizations_updated_at ON organizations;");
     pgm.dropTable("organizations");
 };
