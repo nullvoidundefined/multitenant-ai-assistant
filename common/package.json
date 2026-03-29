@@ -12,10 +12,10 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "lint": "eslint --config ../eslint.config.bottomlessmargaritas.js .",
+    "lint:fix": "eslint --config ../eslint.config.bottomlessmargaritas.js . --fix",
+    "format": "prettier --config ../prettier.config.bottomlessmargaritas.js --write .",
+    "format:check": "prettier --config ../prettier.config.bottomlessmargaritas.js --check ."
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
