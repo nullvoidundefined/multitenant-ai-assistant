@@ -37,9 +37,7 @@ function createApp() {
 describe('CSRF protection', () => {
   it('rejects POST without CSRF token', async () => {
     const app = createApp();
-    const res = await request(app)
-      .post('/test')
-      .send({ data: 'hello' });
+    const res = await request(app).post('/test').send({ data: 'hello' });
 
     expect(res.status).toBe(403);
   });

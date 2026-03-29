@@ -28,11 +28,13 @@ Everything that couldn't be automated. Complete these in order.
 ## 4. Railway Deployment
 
 Railway project **balanced-vibrancy** has been created with:
+
 - **Redis** service (running, connection configured)
 - **server** service (env vars set: `NODE_ENV`, `PORT`, `ANTHROPIC_API_KEY`, `REDIS_URL`)
 - **worker** service (env vars set: `NODE_ENV`, `ANTHROPIC_API_KEY`, `REDIS_URL`)
 
 Still needed:
+
 - [ ] Set `DATABASE_URL` on both server and worker (see step 2 above)
 - [ ] Set `CORS_ORIGIN` on server to your Vercel frontend URL once deployed:
   ```

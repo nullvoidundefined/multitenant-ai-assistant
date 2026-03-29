@@ -103,9 +103,7 @@ export async function listMembers(
   return result.rows;
 }
 
-export async function getAssistantConfig(
-  orgId: string,
-): Promise<{
+export async function getAssistantConfig(orgId: string): Promise<{
   system_prompt: string;
   model: string;
   max_tokens: number;

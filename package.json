@@ -1,35 +1,39 @@
 {
-    "name": "multitenant-ai-assistant",
-    "version": "1.0.0",
-    "private": true,
-    "packageManager": "pnpm@9.15.9",
-    "engines": {
-        "node": ">=22.0.0"
-    },
-    "scripts": {
-        "dev": "pnpm --parallel run dev",
-        "build": "pnpm --filter multitenant-common build && pnpm --filter multitenant-server build && pnpm --filter multitenant-worker build && pnpm --filter multitenant-web build",
-        "lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
-        "lint:fix": "eslint --config eslint.config.bottomlessmargaritas.js . --fix",
-        "format": "prettier --config prettier.config.bottomlessmargaritas.js --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-        "format:check": "prettier --config prettier.config.bottomlessmargaritas.js --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-        "test": "pnpm --filter multitenant-server run test",
-        "bottomlessmargaritas:format": "prettier --config prettier.config.bottomlessmargaritas.js --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-        "bottomlessmargaritas:format:check": "prettier --config prettier.config.bottomlessmargaritas.js --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-        "bottomlessmargaritas:lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
-        "bottomlessmargaritas:lint:fix": "eslint --config eslint.config.bottomlessmargaritas.js . --fix"
-    },
-    "devDependencies": {
-        "@bottomlessmargaritas/claude-architecture-prompts": "^2.1.0",
-        "@bottomlessmargaritas/formatting-configs": "^2.1.0",
-        "@trivago/prettier-plugin-sort-imports": "^4",
-        "@typescript-eslint/parser": "^8",
-        "eslint": "^9.0.0",
-        "eslint-config-prettier": "^10",
-        "eslint-plugin-security": "^3",
-        "eslint-plugin-unused-imports": "^4",
-        "globals": "^15",
-        "prettier": "^3",
-        "typescript-eslint": "^8"
-    }
+  "name": "multitenant-ai-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "build": "pnpm --filter multitenant-common build && pnpm --filter multitenant-server build && pnpm --filter multitenant-worker build && pnpm --filter multitenant-web build",
+    "lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
+    "lint:fix": "eslint --config eslint.config.bottomlessmargaritas.js . --fix",
+    "format": "prettier --config prettier.config.bottomlessmargaritas.js --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "format:check": "prettier --config prettier.config.bottomlessmargaritas.js --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "test": "pnpm --filter multitenant-server run test",
+    "bottomlessmargaritas:format": "prettier --config prettier.config.bottomlessmargaritas.js --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "bottomlessmargaritas:format:check": "prettier --config prettier.config.bottomlessmargaritas.js --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "bottomlessmargaritas:lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
+    "bottomlessmargaritas:lint:fix": "eslint --config eslint.config.bottomlessmargaritas.js . --fix"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7",
+    "@bottomlessmargaritas/claude-architecture-prompts": "^2.1.0",
+    "@bottomlessmargaritas/formatting-configs": "^2.1.0",
+    "@trivago/prettier-plugin-sort-imports": "^4",
+    "@typescript-eslint/parser": "^8",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10",
+    "eslint-plugin-jsx-a11y": "^6",
+    "eslint-plugin-react": "^7",
+    "eslint-plugin-react-hooks": "^5",
+    "eslint-plugin-security": "^3",
+    "eslint-plugin-unused-imports": "^4",
+    "globals": "^15",
+    "prettier": "^3",
+    "typescript-eslint": "^8"
+  }
 }

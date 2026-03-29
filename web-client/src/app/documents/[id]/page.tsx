@@ -1,9 +1,8 @@
+import MarkdownViewer from '@/components/MarkdownViewer';
 import fs from 'fs/promises';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import path from 'path';
-
-import MarkdownViewer from '@/components/MarkdownViewer';
 
 const DOCS: Record<string, { file: string; title: string }> = {
   summary: { file: 'SUMMARY.md', title: 'Summary' },

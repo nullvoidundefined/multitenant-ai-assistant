@@ -1,7 +1,6 @@
 import { logger } from 'app/utils/logs/logger.js';
 import type { NextFunction, Request, Response } from 'express';
 
- 
 export function errorHandler(
   err: unknown,
   req: Request,

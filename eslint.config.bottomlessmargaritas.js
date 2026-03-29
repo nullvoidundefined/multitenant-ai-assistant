@@ -11,7 +11,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config([
   {
-    ignores: ['build', 'dist', 'node_modules', '**/*.d.ts', '.turbo'],
+    ignores: ['**/build/**', '**/dist/**', 'node_modules', '**/*.d.ts', '.turbo', '**/.next', '**/coverage'],
   },
   {
     linterOptions: {
@@ -67,6 +67,7 @@ export default tseslint.config([
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['**/*.test.ts', '**/*.test.tsx', '**/__tests__/**', '**/__mocks__/**', '**/tests/**', '**/vitest.config.ts', '**/vite.config.ts', '**/next.config.ts'],
     extends: [...tseslint.configs.recommended],
     languageOptions: {
       ...react.configs.flat.recommended.languageOptions,
@@ -75,7 +76,7 @@ export default tseslint.config([
       parserOptions: {
         ecmaFeatures: { jsx: true },
         ecmaVersion: 'latest',
-        project: ['./tsconfig.json'],
+        project: ['./server/tsconfig.json', './web-client/tsconfig.json', './worker/tsconfig.json', './common/tsconfig.json'],
         sourceType: 'module',
       },
     },
@@ -152,7 +153,16 @@ export default tseslint.config([
       '**/*.test.ts',
       '**/*.test.tsx',
     ],
+    extends: [...tseslint.configs.recommended],
     languageOptions: {
+      ...react.configs.flat.recommended.languageOptions,
+      ecmaVersion: 'latest',
+      parser: tsEslintParser,
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
       globals: {
         ...globals.jest,
       },

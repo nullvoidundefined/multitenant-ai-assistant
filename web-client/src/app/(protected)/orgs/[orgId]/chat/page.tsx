@@ -283,7 +283,10 @@ export default function ChatPage() {
             <Link href='/documents/summary' className={styles.docLink}>
               Summary
             </Link>
-            <Link href='/documents/technical-overview' className={styles.docLink}>
+            <Link
+              href='/documents/technical-overview'
+              className={styles.docLink}
+            >
               Technical Overview
             </Link>
             <a href={`/orgs/${orgId}/settings`} className={styles.settingsLink}>

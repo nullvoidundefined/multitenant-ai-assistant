@@ -66,6 +66,7 @@ graph TB
 ```
 
 **Deployment targets:**
+
 - Frontend → Vercel (Next.js serverless)
 - API server → Railway (Docker container)
 - Background worker → Railway (Docker container)
@@ -76,23 +77,23 @@ graph TB
 
 ## 3. Tech Stack
 
-| Layer | Technology | Version | Notes |
-|---|---|---|---|
-| **Frontend framework** | Next.js | 15.x | App Router, server/client components |
-| **UI library** | React | 19.x | Concurrent features, Suspense |
-| **Client state** | TanStack React Query | 5.x | Server state caching and synchronization |
-| **Language** | TypeScript | 5.x | Strict mode across all packages |
-| **API server** | Express | 5.x | Async error propagation built-in |
-| **Runtime** | Node.js | ≥ 22.0 | Required by server and worker |
-| **Database** | PostgreSQL | 13+ | Neon (serverless), pgvector for embeddings |
-| **Cache / Queue** | Redis | — | Railway, via ioredis + BullMQ |
-| **LLM** | Anthropic Claude | claude-sonnet-4-20250514 | Streaming SDK with AbortController |
-| **Auth** | Custom sessions | — | bcrypt + HTTP-only cookies |
-| **Logging** | Pino | 10.x | JSON in prod, pino-pretty in dev |
-| **Validation** | Zod | 4.x | Schemas for all request bodies |
-| **Testing** | Vitest | 3.x | Unit + integration |
-| **Package manager** | pnpm | 9.x | Workspaces monorepo |
-| **Container** | Docker | — | Multi-stage builds for server + worker |
+| Layer                  | Technology           | Version                  | Notes                                      |
+| ---------------------- | -------------------- | ------------------------ | ------------------------------------------ |
+| **Frontend framework** | Next.js              | 15.x                     | App Router, server/client components       |
+| **UI library**         | React                | 19.x                     | Concurrent features, Suspense              |
+| **Client state**       | TanStack React Query | 5.x                      | Server state caching and synchronization   |
+| **Language**           | TypeScript           | 5.x                      | Strict mode across all packages            |
+| **API server**         | Express              | 5.x                      | Async error propagation built-in           |
+| **Runtime**            | Node.js              | ≥ 22.0                   | Required by server and worker              |
+| **Database**           | PostgreSQL           | 13+                      | Neon (serverless), pgvector for embeddings |
+| **Cache / Queue**      | Redis                | —                        | Railway, via ioredis + BullMQ              |
+| **LLM**                | Anthropic Claude     | claude-sonnet-4-20250514 | Streaming SDK with AbortController         |
+| **Auth**               | Custom sessions      | —                        | bcrypt + HTTP-only cookies                 |
+| **Logging**            | Pino                 | 10.x                     | JSON in prod, pino-pretty in dev           |
+| **Validation**         | Zod                  | 4.x                      | Schemas for all request bodies             |
+| **Testing**            | Vitest               | 3.x                      | Unit + integration                         |
+| **Package manager**    | pnpm                 | 9.x                      | Workspaces monorepo                        |
+| **Container**          | Docker               | —                        | Multi-stage builds for server + worker     |
 
 ---
 
@@ -102,33 +103,33 @@ graph TB
 
 **Runtime dependencies:**
 
-| Package | Purpose |
-|---|---|
-| `@anthropic-ai/sdk` | Streaming Claude API calls with AbortController support |
-| `@google-cloud/secret-manager` | Fetches secrets from GCP Secret Manager in production |
-| `bcrypt` | Password hashing with 12 salt rounds |
-| `bullmq` | Job queue for background processing (knowledge, summarization) |
-| `cookie-parser` | Parses HTTP cookies into `req.cookies` |
-| `cors` | Cross-origin resource sharing middleware |
-| `dotenv` | Loads `.env` file into `process.env` |
-| `express` | HTTP framework (v5 — async errors propagated automatically) |
-| `express-rate-limit` | In-memory rate limiting; global + auth-specific |
-| `helmet` | Sets security headers (XSS, clickjacking, MIME sniffing) |
-| `ioredis` | Redis client with auto-reconnect |
-| `node-pg-migrate` | Database migrations in JS |
-| `pg` | PostgreSQL client and connection pool |
-| `pino` | Structured JSON logger |
-| `pino-http` | HTTP request/response logging middleware |
-| `zod` | Runtime schema validation for all request bodies |
+| Package                        | Purpose                                                        |
+| ------------------------------ | -------------------------------------------------------------- |
+| `@anthropic-ai/sdk`            | Streaming Claude API calls with AbortController support        |
+| `@google-cloud/secret-manager` | Fetches secrets from GCP Secret Manager in production          |
+| `bcrypt`                       | Password hashing with 12 salt rounds                           |
+| `bullmq`                       | Job queue for background processing (knowledge, summarization) |
+| `cookie-parser`                | Parses HTTP cookies into `req.cookies`                         |
+| `cors`                         | Cross-origin resource sharing middleware                       |
+| `dotenv`                       | Loads `.env` file into `process.env`                           |
+| `express`                      | HTTP framework (v5 — async errors propagated automatically)    |
+| `express-rate-limit`           | In-memory rate limiting; global + auth-specific                |
+| `helmet`                       | Sets security headers (XSS, clickjacking, MIME sniffing)       |
+| `ioredis`                      | Redis client with auto-reconnect                               |
+| `node-pg-migrate`              | Database migrations in JS                                      |
+| `pg`                           | PostgreSQL client and connection pool                          |
+| `pino`                         | Structured JSON logger                                         |
+| `pino-http`                    | HTTP request/response logging middleware                       |
+| `zod`                          | Runtime schema validation for all request bodies               |
 
 **Dev dependencies:**
 
-| Package | Purpose |
-|---|---|
-| `tsx` | TypeScript execution for development (`tsx watch`) |
-| `tsc-alias` | Resolves path aliases after `tsc` compilation |
-| `vitest` | Test runner |
-| `pino-pretty` | Human-readable log formatting in development |
+| Package       | Purpose                                            |
+| ------------- | -------------------------------------------------- |
+| `tsx`         | TypeScript execution for development (`tsx watch`) |
+| `tsc-alias`   | Resolves path aliases after `tsc` compilation      |
+| `vitest`      | Test runner                                        |
+| `pino-pretty` | Human-readable log formatting in development       |
 
 ### Worker
 
@@ -136,18 +137,18 @@ Same core dependencies as server (`@anthropic-ai/sdk`, `bullmq`, `ioredis`, `pg`
 
 ### Web Client
 
-| Package | Purpose |
-|---|---|
-| `next` | React framework with App Router and SSR |
-| `react` / `react-dom` | UI library |
-| `@tanstack/react-query` | Server state management and caching |
-| `@vercel/analytics` | Page view and event tracking |
-| `@vercel/speed-insights` | Core Web Vitals monitoring |
-| `sass` | SCSS compilation for module styles |
-| `react-markdown` | Markdown rendering for documentation pages |
-| `react-syntax-highlighter` | Code block syntax highlighting |
-| `remark-gfm` | GitHub-flavored markdown (tables, strikethrough) |
-| `mermaid` | Diagram rendering in documentation |
+| Package                    | Purpose                                          |
+| -------------------------- | ------------------------------------------------ |
+| `next`                     | React framework with App Router and SSR          |
+| `react` / `react-dom`      | UI library                                       |
+| `@tanstack/react-query`    | Server state management and caching              |
+| `@vercel/analytics`        | Page view and event tracking                     |
+| `@vercel/speed-insights`   | Core Web Vitals monitoring                       |
+| `sass`                     | SCSS compilation for module styles               |
+| `react-markdown`           | Markdown rendering for documentation pages       |
+| `react-syntax-highlighter` | Code block syntax highlighting                   |
+| `remark-gfm`               | GitHub-flavored markdown (tables, strikethrough) |
+| `mermaid`                  | Diagram rendering in documentation               |
 
 ---
 
@@ -273,6 +274,7 @@ multitenant-ai-assistant/
 The database has seven tables. All primary keys are UUIDs generated by PostgreSQL. Foreign keys use `ON DELETE CASCADE` throughout.
 
 ### `users`
+
 ```sql
 CREATE TABLE users (
   id            UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -287,6 +289,7 @@ CREATE TABLE users (
 ```
 
 ### `sessions`
+
 ```sql
 CREATE TABLE sessions (
   id         TEXT        PRIMARY KEY,    -- SHA256 hash of the raw session token
@@ -301,6 +304,7 @@ CREATE INDEX ON sessions (expires_at);
 The raw token is stored in the cookie; only its SHA256 hash is stored in the database. A compromised database cannot be used to impersonate sessions.
 
 ### `organizations`
+
 ```sql
 CREATE TABLE organizations (
   id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -313,6 +317,7 @@ CREATE INDEX ON organizations (slug);
 ```
 
 ### `org_members`
+
 ```sql
 CREATE TABLE org_members (
   org_id    UUID NOT NULL REFERENCES organizations ON DELETE CASCADE,
@@ -327,6 +332,7 @@ CREATE INDEX ON org_members (user_id);
 Junction table enforcing one role per user per org. The composite primary key prevents duplicate memberships.
 
 ### `assistant_configs`
+
 ```sql
 CREATE TABLE assistant_configs (
   id            UUID  PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -341,6 +347,7 @@ CREATE TABLE assistant_configs (
 One config per org (enforced by `UNIQUE` on `org_id`). Created automatically when an organization is created, with sensible defaults.
 
 ### `conversations`
+
 ```sql
 CREATE TABLE conversations (
   id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -359,6 +366,7 @@ CREATE INDEX ON conversations (created_at);
 Conversations are doubly scoped — by organization and by user. The composite index `(org_id, user_id)` supports the most common query pattern.
 
 ### `messages`
+
 ```sql
 CREATE TABLE messages (
   id              UUID    PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -385,31 +393,31 @@ All routes require `Content-Type: application/json` and `X-Requested-With: XMLHt
 
 Rate-limited at 100/15 min (dev) or 10/15 min (prod).
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| POST | `/auth/register` | No | Creates user + session. Body: `{ email, password, first_name, last_name }`. Returns `{ user }`. |
-| POST | `/auth/login` | No | Validates credentials, creates session. Returns `{ user }`. |
-| POST | `/auth/logout` | No | Deletes session from DB, clears cookie. Returns 204. |
-| GET | `/auth/me` | Yes | Returns `{ user }` for current session. |
+| Method | Path             | Auth | Description                                                                                     |
+| ------ | ---------------- | ---- | ----------------------------------------------------------------------------------------------- |
+| POST   | `/auth/register` | No   | Creates user + session. Body: `{ email, password, first_name, last_name }`. Returns `{ user }`. |
+| POST   | `/auth/login`    | No   | Validates credentials, creates session. Returns `{ user }`.                                     |
+| POST   | `/auth/logout`   | No   | Deletes session from DB, clears cookie. Returns 204.                                            |
+| GET    | `/auth/me`       | Yes  | Returns `{ user }` for current session.                                                         |
 
 ### Organizations
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| POST | `/orgs` | Yes | Creates org. Body: `{ name }`. Creator auto-added as admin. Default assistant config created. |
-| GET | `/orgs` | Yes | Lists user's orgs with role. Returns `{ data: [{ id, name, slug, role, created_at }] }`. |
-| GET | `/orgs/:orgId` | Membership | Get org details. |
-| GET | `/orgs/:orgId/members` | Membership | List org members with roles. |
+| Method | Path                   | Auth       | Description                                                                                   |
+| ------ | ---------------------- | ---------- | --------------------------------------------------------------------------------------------- |
+| POST   | `/orgs`                | Yes        | Creates org. Body: `{ name }`. Creator auto-added as admin. Default assistant config created. |
+| GET    | `/orgs`                | Yes        | Lists user's orgs with role. Returns `{ data: [{ id, name, slug, role, created_at }] }`.      |
+| GET    | `/orgs/:orgId`         | Membership | Get org details.                                                                              |
+| GET    | `/orgs/:orgId/members` | Membership | List org members with roles.                                                                  |
 
 ### Chat / Conversations
 
 All routes require org membership (validated by middleware).
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| POST | `/orgs/:orgId/chat` | Membership | Start streaming chat. Body: `{ message, conversation_id? }`. Returns SSE stream. |
-| GET | `/orgs/:orgId/conversations` | Membership | List user's conversations in org. Sorted by `updated_at DESC`. |
-| GET | `/orgs/:orgId/conversations/:id/messages` | Membership | Get all messages in conversation. Sorted by `created_at ASC`. |
+| Method | Path                                      | Auth       | Description                                                                      |
+| ------ | ----------------------------------------- | ---------- | -------------------------------------------------------------------------------- |
+| POST   | `/orgs/:orgId/chat`                       | Membership | Start streaming chat. Body: `{ message, conversation_id? }`. Returns SSE stream. |
+| GET    | `/orgs/:orgId/conversations`              | Membership | List user's conversations in org. Sorted by `updated_at DESC`.                   |
+| GET    | `/orgs/:orgId/conversations/:id/messages` | Membership | Get all messages in conversation. Sorted by `created_at ASC`.                    |
 
 ### SSE Stream Events
 
@@ -423,10 +431,10 @@ data: {"type":"error","message":"Rate limit exceeded"}
 
 ### Health
 
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| GET | `/health` | No | Returns `{ status: "ok" }` immediately. |
-| GET | `/health/ready` | No | Queries DB; returns `{ status: "ok", db: "connected" }` or 503. |
+| Method | Path            | Auth | Description                                                     |
+| ------ | --------------- | ---- | --------------------------------------------------------------- |
+| GET    | `/health`       | No   | Returns `{ status: "ok" }` immediately.                         |
+| GET    | `/health/ready` | No   | Queries DB; returns `{ status: "ok", db: "connected" }` or 503. |
 
 ---
 
@@ -463,6 +471,7 @@ sequenceDiagram
 **Implementation details:**
 
 Response headers are set immediately:
+
 ```
 Content-Type: text/event-stream
 Cache-Control: no-cache
@@ -522,6 +531,7 @@ SELECT c.id FROM conversations WHERE id = $1 AND org_id = $2
 Foreign key constraints ensure referential integrity. An `org_members` row must reference a valid org. Conversations must reference a valid org. Messages must reference a valid conversation. Cascading deletes ensure that deleting an organization removes all its conversations, messages, members, and config.
 
 **Data access rules:**
+
 - Users can only list orgs they are members of (query joins `org_members`)
 - Users can only access conversations in orgs they belong to (middleware + WHERE clause)
 - Conversations are further scoped by `user_id` — members cannot see each other's conversations
@@ -600,10 +610,10 @@ The `common/src/chunker` module provides recursive text splitting for the future
 
 ```typescript
 chunkText(text, {
-  maxTokens: 500,        // Default chunk size
-  overlapTokens: 50,     // Overlap between chunks
-  separators: ['\n\n', '\n', '. ', ' ']
-})
+  maxTokens: 500, // Default chunk size
+  overlapTokens: 50, // Overlap between chunks
+  separators: ['\n\n', '\n', '. ', ' '],
+});
 ```
 
 Returns `{ content, index, tokenCount }[]`. Will be used when knowledge documents are uploaded and embedded for RAG retrieval.
@@ -684,7 +694,10 @@ The chat page opens a POST request and reads the response body as a stream:
 const res = await fetch(`${API_BASE}/orgs/${orgId}/chat`, {
   method: 'POST',
   credentials: 'include',
-  headers: { 'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/json' },
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+    'Content-Type': 'application/json',
+  },
   body: JSON.stringify({ message, conversation_id }),
 });
 
@@ -720,7 +733,10 @@ The `/documents/[id]` route maps document IDs to markdown files in the `docs/` d
 ```typescript
 const DOCS: Record<string, { file: string; title: string }> = {
   summary: { file: 'SUMMARY.md', title: 'Summary' },
-  'technical-overview': { file: 'TECHNICAL_OVERVIEW.md', title: 'Technical Overview' },
+  'technical-overview': {
+    file: 'TECHNICAL_OVERVIEW.md',
+    title: 'Technical Overview',
+  },
 };
 ```
 
@@ -735,11 +751,13 @@ Files are read at build time via `fs.readFile` and rendered through the `Markdow
 Two-stage Docker build:
 
 **Stage 1 — Build:**
+
 - Node 22 slim base
 - Install all dependencies (including dev deps for TypeScript)
 - Run `tsc` → `tsc-alias` to compile and resolve path aliases
 
 **Stage 2 — Production:**
+
 - Fresh Node 22 slim base
 - Install production dependencies only
 - Copy `dist/` and `migrations/` from build stage
@@ -769,21 +787,21 @@ Zero-config Next.js deployment. Only environment variable: `NEXT_PUBLIC_API_URL`
 
 **Server + Worker (Railway):**
 
-| Variable | Required | Description |
-|---|---|---|
-| `DATABASE_URL` | Yes | PostgreSQL connection string (Neon pooler URL) |
-| `ANTHROPIC_API_KEY` | Yes | Claude API key |
-| `CORS_ORIGIN` | Yes (prod) | Frontend URL |
-| `REDIS_URL` | No | Redis connection; caching/queue disabled if absent |
-| `NODE_ENV` | No | Set to `production` on Railway |
-| `PORT` | No | HTTP port (default: 3001) |
-| `GCP_PROJECT_ID` | No | GCP project for Secret Manager |
-| `GCP_SA_JSON` | No | GCP service account credentials JSON |
+| Variable            | Required   | Description                                        |
+| ------------------- | ---------- | -------------------------------------------------- |
+| `DATABASE_URL`      | Yes        | PostgreSQL connection string (Neon pooler URL)     |
+| `ANTHROPIC_API_KEY` | Yes        | Claude API key                                     |
+| `CORS_ORIGIN`       | Yes (prod) | Frontend URL                                       |
+| `REDIS_URL`         | No         | Redis connection; caching/queue disabled if absent |
+| `NODE_ENV`          | No         | Set to `production` on Railway                     |
+| `PORT`              | No         | HTTP port (default: 3001)                          |
+| `GCP_PROJECT_ID`    | No         | GCP project for Secret Manager                     |
+| `GCP_SA_JSON`       | No         | GCP service account credentials JSON               |
 
 **Web Client (Vercel):**
 
-| Variable | Required | Description |
-|---|---|---|
+| Variable              | Required   | Description                                     |
+| --------------------- | ---------- | ----------------------------------------------- |
 | `NEXT_PUBLIC_API_URL` | Yes (prod) | API base URL (default: `http://localhost:3001`) |
 
 ### Database Migrations
