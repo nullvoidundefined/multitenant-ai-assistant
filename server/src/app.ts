@@ -1,7 +1,10 @@
 import { corsConfig } from 'app/config/corsConfig.js';
 import { isProduction } from 'app/config/env.js';
 import pool, { query } from 'app/db/pool/pool.js';
-import { csrfGuard } from 'app/middleware/csrfGuard/csrfGuard.js';
+import {
+  csrfGuard,
+  generateCsrfToken,
+} from 'app/middleware/csrfGuard/csrfGuard.js';
 import { errorHandler } from 'app/middleware/errorHandler/errorHandler.js';
 import { notFoundHandler } from 'app/middleware/notFoundHandler/notFoundHandler.js';
 import { rateLimiter } from 'app/middleware/rateLimiter/rateLimiter.js';
@@ -37,6 +40,12 @@ app.use(rateLimiter);
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
+
+app.get('/api/csrf-token', (req, res) => {
+  const token = generateCsrfToken(req, res);
+  res.json({ token });
+});
+
 app.use(csrfGuard);
 app.use(loadSession);
 
