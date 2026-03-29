@@ -1,13 +1,12 @@
+import * as authRepo from 'app/repositories/auth/auth.js';
 import type { NextFunction, Request, Response } from 'express';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { loadSession, requireAuth } from './requireAuth.js';
 
 vi.mock('app/repositories/auth/auth.js', () => ({
   getSessionWithUser: vi.fn(),
 }));
-
-import * as authRepo from 'app/repositories/auth/auth.js';
-
-import { loadSession, requireAuth } from './requireAuth.js';
 
 function mockReq(overrides: Partial<Request> = {}): Request {
   return { cookies: {}, ...overrides } as unknown as Request;
@@ -74,7 +73,9 @@ describe('loadSession middleware', () => {
   });
 
   it('calls next without setting user when cookie is not a string', async () => {
-    const req = mockReq({ cookies: { sid: 123 } } as unknown as Partial<Request>);
+    const req = mockReq({
+      cookies: { sid: 123 },
+    } as unknown as Partial<Request>);
     const res = mockRes();
     const next = vi.fn();
 

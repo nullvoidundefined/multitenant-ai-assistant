@@ -1,11 +1,11 @@
 import type { NextFunction, Request, Response } from 'express';
 import { describe, expect, it, vi } from 'vitest';
 
+import { errorHandler } from './errorHandler.js';
+
 vi.mock('app/utils/logs/logger.js', () => ({
   logger: { error: vi.fn(), info: vi.fn(), debug: vi.fn() },
 }));
-
-import { errorHandler } from './errorHandler.js';
 
 function mockReq(): Request {
   return { id: 'req-1' } as unknown as Request;

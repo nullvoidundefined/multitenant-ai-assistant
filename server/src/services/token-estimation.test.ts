@@ -43,7 +43,8 @@ describe('token estimation heuristic', () => {
   });
 
   it('provides reasonable estimate for typical user messages', () => {
-    const message = 'Can you help me understand how to configure the system prompt for our organization?';
+    const message =
+      'Can you help me understand how to configure the system prompt for our organization?';
     const estimated = estimateTokens(message);
     // 83 chars / 4 = 20.75 -> ceil = 21
     expect(estimated).toBe(21);

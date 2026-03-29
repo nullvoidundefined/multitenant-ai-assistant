@@ -1,5 +1,8 @@
+import * as authRepo from 'app/repositories/auth/auth.js';
 import type { Request, Response } from 'express';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { login, logout, me, register } from './auth.js';
 
 vi.mock('app/repositories/auth/auth.js', () => ({
   createUserAndSession: vi.fn(),
@@ -16,10 +19,6 @@ vi.mock('app/config/env.js', () => ({
 vi.mock('app/utils/logs/logger.js', () => ({
   logger: { info: vi.fn(), error: vi.fn(), debug: vi.fn() },
 }));
-
-import * as authRepo from 'app/repositories/auth/auth.js';
-
-import { login, logout, me, register } from './auth.js';
 
 function mockReq(overrides: Partial<Request> = {}): Request {
   return {
@@ -90,7 +89,9 @@ describe('register handler', () => {
   });
 
   it('returns 409 when email already exists', async () => {
-    vi.mocked(authRepo.createUserAndSession).mockRejectedValue({ code: '23505' });
+    vi.mocked(authRepo.createUserAndSession).mockRejectedValue({
+      code: '23505',
+    });
 
     const req = mockReq({
       body: {

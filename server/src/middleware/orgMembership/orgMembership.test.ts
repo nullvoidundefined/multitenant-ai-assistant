@@ -1,13 +1,12 @@
+import * as orgsRepo from 'app/repositories/orgs/orgs.js';
 import type { NextFunction, Request, Response } from 'express';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { orgMembership, requireRole } from './orgMembership.js';
 
 vi.mock('app/repositories/orgs/orgs.js', () => ({
   getMembership: vi.fn(),
 }));
-
-import * as orgsRepo from 'app/repositories/orgs/orgs.js';
-
-import { orgMembership, requireRole } from './orgMembership.js';
 
 function mockReq(overrides: Partial<Request> = {}): Request {
   return {
@@ -46,7 +45,14 @@ describe('orgMembership middleware', () => {
 
   it('returns 400 when orgId param is missing', () => {
     const req = mockReq({
-      user: { id: 'u1', email: 'a@b.com', first_name: 'A', last_name: 'B', created_at: new Date(), updated_at: null },
+      user: {
+        id: 'u1',
+        email: 'a@b.com',
+        first_name: 'A',
+        last_name: 'B',
+        created_at: new Date(),
+        updated_at: null,
+      },
       params: {},
     });
     const res = mockRes();
@@ -61,7 +67,14 @@ describe('orgMembership middleware', () => {
     vi.mocked(orgsRepo.getMembership).mockResolvedValue(null);
 
     const req = mockReq({
-      user: { id: 'u1', email: 'a@b.com', first_name: 'A', last_name: 'B', created_at: new Date(), updated_at: null },
+      user: {
+        id: 'u1',
+        email: 'a@b.com',
+        first_name: 'A',
+        last_name: 'B',
+        created_at: new Date(),
+        updated_at: null,
+      },
       params: { orgId: 'org-1' },
     });
     const res = mockRes();
@@ -88,7 +101,14 @@ describe('orgMembership middleware', () => {
     });
 
     const req = mockReq({
-      user: { id: 'u1', email: 'a@b.com', first_name: 'A', last_name: 'B', created_at: new Date(), updated_at: null },
+      user: {
+        id: 'u1',
+        email: 'a@b.com',
+        first_name: 'A',
+        last_name: 'B',
+        created_at: new Date(),
+        updated_at: null,
+      },
       params: { orgId: 'org-1' },
     });
     const res = mockRes();
@@ -107,7 +127,14 @@ describe('orgMembership middleware', () => {
     vi.mocked(orgsRepo.getMembership).mockRejectedValue(error);
 
     const req = mockReq({
-      user: { id: 'u1', email: 'a@b.com', first_name: 'A', last_name: 'B', created_at: new Date(), updated_at: null },
+      user: {
+        id: 'u1',
+        email: 'a@b.com',
+        first_name: 'A',
+        last_name: 'B',
+        created_at: new Date(),
+        updated_at: null,
+      },
       params: { orgId: 'org-1' },
     });
     const res = mockRes();

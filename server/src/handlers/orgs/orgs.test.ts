@@ -1,5 +1,8 @@
+import * as orgsRepo from 'app/repositories/orgs/orgs.js';
 import type { Request, Response } from 'express';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { createOrg, getOrg, listMembers, listOrgs } from './orgs.js';
 
 vi.mock('app/repositories/orgs/orgs.js', () => ({
   createOrg: vi.fn(),
@@ -8,15 +11,18 @@ vi.mock('app/repositories/orgs/orgs.js', () => ({
   listMembers: vi.fn(),
 }));
 
-import * as orgsRepo from 'app/repositories/orgs/orgs.js';
-
-import { createOrg, getOrg, listMembers, listOrgs } from './orgs.js';
-
 function mockReq(overrides: Partial<Request> = {}): Request {
   return {
     body: {},
     params: {},
-    user: { id: 'u1', email: 'a@b.com', first_name: 'A', last_name: 'B', created_at: new Date(), updated_at: null },
+    user: {
+      id: 'u1',
+      email: 'a@b.com',
+      first_name: 'A',
+      last_name: 'B',
+      created_at: new Date(),
+      updated_at: null,
+    },
     orgMembership: { orgId: 'org-1', role: 'admin' as const },
     ...overrides,
   } as unknown as Request;
@@ -43,7 +49,13 @@ describe('createOrg handler', () => {
   });
 
   it('returns 201 with created org', async () => {
-    const org = { id: 'org-1', name: 'My Org', slug: 'my-org-abc', created_at: new Date(), updated_at: null };
+    const org = {
+      id: 'org-1',
+      name: 'My Org',
+      slug: 'my-org-abc',
+      created_at: new Date(),
+      updated_at: null,
+    };
     vi.mocked(orgsRepo.createOrg).mockResolvedValue(org);
 
     const req = mockReq({ body: { name: 'My Org' } });
@@ -62,7 +74,14 @@ describe('listOrgs handler', () => {
 
   it('returns list of orgs for user', async () => {
     const orgs = [
-      { id: 'org-1', name: 'Org 1', slug: 'org-1', role: 'admin' as const, created_at: new Date(), updated_at: null },
+      {
+        id: 'org-1',
+        name: 'Org 1',
+        slug: 'org-1',
+        role: 'admin' as const,
+        created_at: new Date(),
+        updated_at: null,
+      },
     ];
     vi.mocked(orgsRepo.getUserOrgs).mockResolvedValue(orgs);
 
@@ -79,7 +98,13 @@ describe('getOrg handler', () => {
   beforeEach(() => vi.clearAllMocks());
 
   it('returns org data when found', async () => {
-    const org = { id: 'org-1', name: 'My Org', slug: 'my-org', created_at: new Date(), updated_at: null };
+    const org = {
+      id: 'org-1',
+      name: 'My Org',
+      slug: 'my-org',
+      created_at: new Date(),
+      updated_at: null,
+    };
     vi.mocked(orgsRepo.getOrgById).mockResolvedValue(org);
 
     const req = mockReq();
@@ -107,7 +132,12 @@ describe('listMembers handler', () => {
 
   it('returns members list', async () => {
     const members = [
-      { user_id: 'u1', email: 'a@b.com', role: 'admin', joined_at: '2024-01-01' },
+      {
+        user_id: 'u1',
+        email: 'a@b.com',
+        role: 'admin',
+        joined_at: '2024-01-01',
+      },
     ];
     vi.mocked(orgsRepo.listMembers).mockResolvedValue(members);
 
