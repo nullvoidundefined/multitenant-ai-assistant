@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: pnpm format:check
+    lint:
+      run: pnpm lint
+
+pre-push:
+  commands:
+    format:
+      run: pnpm format:check
+    lint:
+      run: pnpm lint
+    build:
+      run: pnpm --filter multitenant-common build && pnpm --filter multitenant-server build && pnpm --filter multitenant-worker build

@@ -7,6 +7,7 @@
     "node": ">=22.0.0"
   },
   "scripts": {
+    "prepare": "git rev-parse --git-dir > /dev/null 2>&1 && lefthook install || true",
     "dev": "pnpm --parallel run dev",
     "build": "pnpm --filter multitenant-common build && pnpm --filter multitenant-server build && pnpm --filter multitenant-worker build && pnpm --filter multitenant-web build",
     "lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
@@ -33,6 +34,7 @@
     "eslint-plugin-security": "^3",
     "eslint-plugin-unused-imports": "^4",
     "globals": "^15",
+    "lefthook": "^2.1.1",
     "prettier": "^3",
     "typescript-eslint": "^8"
   }
