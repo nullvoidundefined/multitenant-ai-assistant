@@ -15,8 +15,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       '@bottomlessmargaritas/formatting-configs':
-        specifier: ^2.1.0
-        version: 2.1.0(@babel/eslint-parser@7.28.6(@babel/core@7.29.0)(eslint@9.39.4))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.8.1))(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.4))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.4))(eslint-plugin-react-hooks@5.2.0(eslint@9.39.4))(eslint-plugin-react@7.37.5(eslint@9.39.4))(eslint-plugin-security@3.0.1)(eslint-plugin-unused-imports@4.4.1(@typescript-eslint/eslint-plugin@8.57.2(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4))(eslint@9.39.4)(globals@15.15.0)(prettier@3.8.1)(typescript-eslint@8.57.2(eslint@9.39.4)(typescript@5.9.3))
+        specifier: ^2.2.0
+        version: 2.2.0(@babel/eslint-parser@7.28.6(@babel/core@7.29.0)(eslint@9.39.4))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.8.1))(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.4))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.4))(eslint-plugin-react-hooks@5.2.0(eslint@9.39.4))(eslint-plugin-react@7.37.5(eslint@9.39.4))(eslint-plugin-security@3.0.1)(eslint-plugin-unused-imports@4.4.1(@typescript-eslint/eslint-plugin@8.57.2(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4))(eslint@9.39.4)(globals@15.15.0)(prettier@3.8.1)(typescript-eslint@8.57.2(eslint@9.39.4)(typescript@5.9.3))
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4
         version: 4.3.0(prettier@3.8.1)
@@ -521,8 +521,8 @@ packages:
       vue:
         optional: true
 
-  '@bottomlessmargaritas/formatting-configs@2.1.0':
-    resolution: {integrity: sha512-mnZ/aCc6L2uYKZycKw7ZDpR8uAajue5P1ViLGCZ7UxbSV5Ujiapuabc5wUTUK1Mm8SidInw2TWe5AfsyIaUDaw==}
+  '@bottomlessmargaritas/formatting-configs@2.2.0':
+    resolution: {integrity: sha512-L/V1XuHArYtr2uYQ2+XZJiR1XTul9NOmxnABtYMDI/fzGwkB+bes0+m/YYPx2ncp9ifGFnzRq9/nRmHUNxb+wQ==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -4128,7 +4128,7 @@ snapshots:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@bottomlessmargaritas/formatting-configs@2.1.0(@babel/eslint-parser@7.28.6(@babel/core@7.29.0)(eslint@9.39.4))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.8.1))(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.4))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.4))(eslint-plugin-react-hooks@5.2.0(eslint@9.39.4))(eslint-plugin-react@7.37.5(eslint@9.39.4))(eslint-plugin-security@3.0.1)(eslint-plugin-unused-imports@4.4.1(@typescript-eslint/eslint-plugin@8.57.2(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4))(eslint@9.39.4)(globals@15.15.0)(prettier@3.8.1)(typescript-eslint@8.57.2(eslint@9.39.4)(typescript@5.9.3))':
+  '@bottomlessmargaritas/formatting-configs@2.2.0(@babel/eslint-parser@7.28.6(@babel/core@7.29.0)(eslint@9.39.4))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.8.1))(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.4))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.4))(eslint-plugin-react-hooks@5.2.0(eslint@9.39.4))(eslint-plugin-react@7.37.5(eslint@9.39.4))(eslint-plugin-security@3.0.1)(eslint-plugin-unused-imports@4.4.1(@typescript-eslint/eslint-plugin@8.57.2(@typescript-eslint/parser@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4))(eslint@9.39.4)(globals@15.15.0)(prettier@3.8.1)(typescript-eslint@8.57.2(eslint@9.39.4)(typescript@5.9.3))':
     dependencies:
       '@trivago/prettier-plugin-sort-imports': 4.3.0(prettier@3.8.1)
       '@typescript-eslint/parser': 8.57.2(eslint@9.39.4)(typescript@5.9.3)
