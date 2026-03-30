@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import DocBar from '@/components/DocBar/DocBar';
+
 import './globals.scss';
 
 const geistSans = Geist({
@@ -34,6 +36,7 @@ export default function RootLayout({
         <QueryProvider>
           <AuthProvider>{children}</AuthProvider>
         </QueryProvider>
+        <DocBar />
         <Analytics />
         <SpeedInsights />
       </body>

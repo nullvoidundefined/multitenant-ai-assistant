@@ -6,7 +6,6 @@ import type { FormEvent } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { API_BASE, get } from '@/lib/api';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
 import styles from './chat.module.scss';
@@ -280,15 +279,6 @@ export default function ChatPage() {
               : 'New Conversation'}
           </span>
           <div className={styles.chatHeaderRight}>
-            <Link href='/documents/summary' className={styles.docLink}>
-              Summary
-            </Link>
-            <Link
-              href='/documents/technical-overview'
-              className={styles.docLink}
-            >
-              Technical Overview
-            </Link>
             <a href={`/orgs/${orgId}/settings`} className={styles.settingsLink}>
               Settings
             </a>

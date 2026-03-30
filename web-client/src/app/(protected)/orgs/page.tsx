@@ -6,7 +6,6 @@ import type { FormEvent } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { get, post } from '@/lib/api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import styles from './orgs.module.scss';
@@ -77,12 +76,6 @@ export default function OrgsPage() {
       <div className={styles.header}>
         <h1 className={styles.title}>My Organizations</h1>
         <div className={styles.headerRight}>
-          <Link href='/documents/summary' className={styles.docLink}>
-            Summary
-          </Link>
-          <Link href='/documents/technical-overview' className={styles.docLink}>
-            Technical Overview
-          </Link>
           <button className={styles.logoutButton} onClick={() => logout()}>
             Log Out
           </button>
