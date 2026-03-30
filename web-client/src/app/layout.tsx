@@ -1,11 +1,10 @@
+import DocBar from '@/components/DocBar/DocBar';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { QueryProvider } from '@/lib/QueryProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-
-import DocBar from '@/components/DocBar/DocBar';
 
 import './globals.scss';
 
