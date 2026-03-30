@@ -14,8 +14,8 @@
     "migrate:create": "node-pg-migrate create",
     "lint": "eslint --config ../eslint.config.bottomlessmargaritas.js .",
     "lint:fix": "eslint --config ../eslint.config.bottomlessmargaritas.js . --fix",
-    "format": "prettier --config ../prettier.config.bottomlessmargaritas.js --write .",
-    "format:check": "prettier --config ../prettier.config.bottomlessmargaritas.js --check .",
+    "format": "prettier --config ../prettier.config.bottomlessmargaritas.mjs --write .",
+    "format:check": "prettier --config ../prettier.config.bottomlessmargaritas.mjs --check .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
