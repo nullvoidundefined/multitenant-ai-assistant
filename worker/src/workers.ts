@@ -10,7 +10,7 @@ const healthServer = http.createServer((_req, res) => {
   res.writeHead(200);
   res.end('ok');
 });
-healthServer.listen(Number(process.env.PORT) || 3001);
+healthServer.listen(Number(process.env.WORKER_PORT) || 3002);
 
 process.on('SIGTERM', () => {
   logger.info('Worker shutting down');
