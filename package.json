@@ -15,6 +15,9 @@
     "format": "prettier --config prettier.config.bottomlessmargaritas.mjs --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "format:check": "prettier --config prettier.config.bottomlessmargaritas.mjs --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "pnpm --filter multitenant-server run test",
+    "test:integration": "pnpm --filter multitenant-server run test:integration",
+    "test:e2e": "npx playwright test",
+    "test:smoke": "bash scripts/smoke-test.sh",
     "bottomlessmargaritas:format": "prettier --config prettier.config.bottomlessmargaritas.mjs --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "bottomlessmargaritas:format:check": "prettier --config prettier.config.bottomlessmargaritas.mjs --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "bottomlessmargaritas:lint": "eslint --config eslint.config.bottomlessmargaritas.js .",
@@ -24,6 +27,7 @@
     "@babel/eslint-parser": "^7",
     "@bottomlessmargaritas/claude-architecture-prompts": "^3.0.0",
     "@bottomlessmargaritas/formatting-configs": "^2.2.2",
+    "@playwright/test": "^1.59.1",
     "@trivago/prettier-plugin-sort-imports": "^4",
     "@typescript-eslint/parser": "^8",
     "eslint": "^9.0.0",
@@ -36,6 +40,7 @@
     "globals": "^15",
     "lefthook": "^2.1.1",
     "prettier": "^3",
+    "tsx": "^4.21.0",
     "typescript-eslint": "^8"
   }
 }
